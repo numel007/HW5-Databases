@@ -101,16 +101,14 @@ def edit(plant_id):
     if request.method == 'POST':
         # TODO: Make an `update_one` database call to update the plant with the
         # given id. Make sure to put the updated fields in the `$set` object.
-        updated_plant= mongo.db.plants.update_one({
-            '_id': ObjectId(plant_id)
-            },
+        updated_plant = mongo.db.plants.update_one({'_id': ObjectId(plant_id)},
             {
                 '$set': { 
-                'name': {request.form.get('plant_name')},
-                'variety': {request.form.get('variety')},
-                'photo_url': {request.form.get('photo')},
-                'date_planted': {request.form.get('date_planted')}
-            }}
+                'name': request.form.get('plant_name'),
+                'variety': request.form.get('variety'),
+                'photo_url': request.form.get('photo'),
+                'date_planted': request.form.get('date_planted')}
+            }
         )
         
         return redirect(url_for('detail', plant_id=plant_id))
