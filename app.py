@@ -4,7 +4,6 @@ from bson.objectid import ObjectId
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-import pymongo
 
 # Set up environment variables & constants
 load_dotenv()
@@ -13,8 +12,8 @@ MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
 MONGODB_DBNAME = 'test'
 
 app = Flask(__name__)
-client = pymongo.MongoClient("mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.wyzu6.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority")
-db = client.test
+client = MongoClient("mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.wyzu6.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority")
+db = client[MONGODB_DBNAME]
 
 
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
