@@ -12,11 +12,12 @@ MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
 MONGODB_DBNAME = 'test'
 
 app = Flask(__name__)
-client = MongoClient("mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.wyzu6.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority")
+client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.wyzu6.mongodb.net/{MONGODB_DBNAME}?retryWrites=true&w=majority")
+
 db = client[MONGODB_DBNAME]
 
 
-# app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
+# app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"ß
 # mongo = PyMongo(app)
 
 ############################################################
