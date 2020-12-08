@@ -14,7 +14,7 @@ MONGODB_DBNAME = 'test'
 
 app = Flask(__name__)
 client = pymongo.MongoClient("mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.wyzu6.mongodb.net/{MONGO_DBNAME}?retryWrites=true&w=majority")
-db = client[MONGODB_DBNAME]
+db = client.test
 
 
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
